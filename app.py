@@ -5,13 +5,15 @@ app = Flask(__name__)
 
 API_KEY = "FMUKkmI3xZrFQjc9REGiIS5kHd6t0dzjAnHeHjRnmPg8t2HPgCVlJQQJ99BEACYeBjFXJ3w3AAAbACOGS3gs"
 ENDPOINT = "https://api.cognitive.microsofttranslator.com/"
-LOCATION = "eastus"  # e.g., centralindia
+LOCATION = "eastus"  # or your Azure location
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     translated_text = ""
+    original_text = ""
+
     if request.method == "POST":
-        text = request.form["text"]
+        original_text = request.form["text"]
         to_lang = request.form["language"]
 
         path = '/translate?api-version=3.0'
@@ -25,7 +27,7 @@ def index():
             'X-ClientTraceId': str(uuid.uuid4())
         }
 
-        body = [{'text': text}]
+        body = [{'text': original_text}]
 
         try:
             response = requests.post(constructed_url, headers=headers, json=body)
@@ -34,7 +36,7 @@ def index():
         except Exception as e:
             translated_text = f"Error: {e}"
 
-    return render_template("index.html", translated_text=translated_text)
+    return render_template("index.html", translated_text=translated_text, original_text=original_text)
 
 if __name__ == "__main__":
     app.run(debug=True)
