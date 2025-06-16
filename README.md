@@ -1,10 +1,10 @@
-# 🌐 Language Translator Web App
+#  Language Translator Web App
 
 This is a simple web-based language translator built using **Flask (Python)** on the backend and **HTML/CSS** on the frontend. It utilizes **Microsoft Azure Translator Text API** to translate input text into multiple target languages.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Translate text into 9 languages including:
   - English, Spanish, French, German, Chinese (Simplified), Arabic, Hindi, Sindhi, Urdu
