@@ -3,8 +3,8 @@ import requests, uuid
 
 app = Flask(__name__)
 
-API_KEY = "FMUKkmI3xZrFQjc9REGiIS5kHd6t0dzjAnHeHjRnmPg8t2HPgCVlJQQJ99BEACYeBjFXJ3w3AAAbACOGS3gs"
-ENDPOINT = "https://api.cognitive.microsofttranslator.com/"
+API_KEY = "api"
+ENDPOINT = ""
 LOCATION = "eastus"  # or your Azure location
 
 @app.route("/", methods=["GET", "POST"])
